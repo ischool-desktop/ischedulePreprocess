@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="format.xsl" ?>
+<ValidateRule Name="課程排課資料">
+  <DuplicateDetection>
+    <Detector Name="組合鍵值">
+      <Field Name="課程名稱" />
+      <Field Name="學年度" />
+      <Field Name="學期" />
+    </Detector>
+  </DuplicateDetection>
+  <FieldList>
+    <Field Required="True" Name="課程名稱" Description="課程名稱">
+      <Validate AutoCorrect="False" Description="「課程名稱」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+    </Field>
+
+    <Field Required="True" Name="學年度" Description="學年度">
+      <Validate AutoCorrect="False" Description="「學年度」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+      <Validate AutoCorrect="False" Description="「學年度」必須是數字。" ErrorType="Error" Validator="Integer極限" When="" />
+    </Field>
+
+    <Field Required="True" Name="學期" Description="學期「1,2」，允許輸入文字">
+      <Validate AutoCorrect="False" Description="「學期」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+      <!--<Validate AutoCorrect="False" Description="「學期」只允許「1、2」。" ErrorType="Error" Validator="學期列舉" When="" />-->
+    </Field>
+
+    <Field Required="True" Name="科目名稱" Description="科目名稱。">
+    </Field>
+
+    <Field Required="False" Name="科目簡稱" Description="科目簡稱。">
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="false" Name="科目級別" Description="科目級別。">
+      <Validate AutoCorrect="False" Description="「科目級別」必須是數字。" ErrorType="Error" Validator="Integer極限" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="false" Name="學分" Description="學分。">
+      <Validate AutoCorrect="False" Description="「學分」必須是數字。" ErrorType="Error" Validator="Integer極限" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="false" Name="節數" Description="課程節數，與匯入課程節數功能相同，方便在匯入排課資料時使用。">
+      <Validate AutoCorrect="False" Description="「節數」必須是數字。" ErrorType="Error" Validator="Integer極限" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="false" Name="所屬班級" Description="所屬班級">
+      <Validate AutoCorrect="False" Description="「所屬班級」不存在於排課班級清單" ErrorType="Warning" Validator="班級名稱是否存在排課班級" When="" />
+      <Validate AutoCorrect="False" Description="「所屬班級」不存在於ischool班級清單" ErrorType="Warning" Validator="班級名稱是否存在ischool" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="false" Name="授課教師一" Description="授課教師一">
+      <Validate AutoCorrect="False" Description="「授課教師一」不存在於排課教師清單。" ErrorType="Warning" Validator="教師名稱是否存在排課教師" When="" />
+      <Validate AutoCorrect="False" Description="「授課教師一」不存在於ischool教師清單。" ErrorType="Warning" Validator="教師名稱是否存在ischool" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="false" Name="授課教師二" Description="授課教師二">
+      <Validate AutoCorrect="False" Description="「授課教師二」不存在於排課教師清單。" ErrorType="Warning" Validator="教師名稱是否存在排課教師" When="" />
+      <Validate AutoCorrect="False" Description="「授課教師二」不存在於ischool教師清單。" ErrorType="Warning" Validator="教師名稱是否存在ischool" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="false" Name="授課教師三" Description="授課教師三">
+      <Validate AutoCorrect="False" Description="「授課教師三」不存在於排課教師清單。" ErrorType="Warning" Validator="教師名稱是否存在排課教師" When="" />
+      <Validate AutoCorrect="False" Description="「授課教師三」不存在於ischool教師清單。" ErrorType="Warning" Validator="教師名稱是否存在ischool" When="" />
+    </Field>
+
+
+    <Field Required="False" Name="上課時間表" EmptyAlsoValidate="False" Description="上課時間表用於星期及節次對照(日校或進修學校)">
+      <Validate AutoCorrect="False" Description="「上課時間表」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+      <Validate AutoCorrect="False" Description="「上課時間表」不存在系統中。" ErrorType="Error" Validator="時間表名稱是否存在" When="" />
+    </Field>
+
+    <Field Required="False" Name="同天排課" EmptyAlsoValidate="False" Description="請填入「是」或「空白」，若為「是」，代表兩個以上的課程分段，都可排在當天。">
+      <Validate AutoCorrect="True" Description="「同天排課」只允許「是」或保留空白。" ErrorType="Error" Validator="只能為是列舉" When="" />
+    </Field>
+
+    <Field Required="False" Name="隔天排課" EmptyAlsoValidate="False" Description="請填入「是」或「空白」，若為「是」,代表此課程限制必須隔一天，如：星期一(體育)/星期三(體育)">
+      <Validate AutoCorrect="True" Description="「隔天排課」只允許「是」或保留空白。" ErrorType="Error" Validator="只能為是列舉" When="" />
+    </Field>
+
+    <Field Required="False" Name="分割設定" Description="課程分段分割設定">
+      <!-- 分課表分割設定方式如『1,2,1』，需增加驗證規則 -->
+    </Field>
+
+    <Field Required="False" Name="場地條件" EmptyAlsoValidate="False" Description="課程分段的預設場地名稱">
+      <Validate AutoCorrect="False" Description="「場地條件」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+      <Validate AutoCorrect="False" Description="「場地條件」必須在系統中。" ErrorType="Error" Validator="場地名稱是否存在" When="" />
+    </Field>
+
+    <Field Required="False" Name="星期條件" Description="課程分段預設星期條件(1-7)" EmptyAlsoValidate="False">
+    </Field>
+
+    <Field Required="False" Name="節次條件" Description="課程分段預設節次條件(0-20)" EmptyAlsoValidate="False">
+    </Field>
+
+    <Field Required="False" Name="可跨中午" Description="課程分段是否可跨中午" EmptyAlsoValidate="False">
+      <Validate AutoCorrect="True" Description="「可跨中午」只允許「是」或保留空白。" ErrorType="Error" Validator="只能為是列舉" When="" />
+    </Field>
+
+    <Field Required="False" Name="單雙週條件" Description="課程分段預設單雙週(單,雙,單雙)" EmptyAlsoValidate="False">
+      <Validate AutoCorrect="True" Description="「單雙週」只允許「單」、「雙」或「單雙」。" ErrorType="Error" Validator="單雙週列舉" When="" />
+    </Field>
+
+    <Field Required="False"  EmptyAlsoValidate="true" Name="開放查詢" Description="開放查詢">
+      <Validate AutoCorrect="True" Description="「開放查詢」只允許「開放、不開放」。" ErrorType="Error" Validator="是否開放查詢列舉" When="" />
+    </Field>
+
+    <Field Required="False" Name="領域" Description="領域">
+
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="False" Name="分項" Description="分項">
+      <Validate AutoCorrect="True" Description="「分項」只允許「學業、體育、國防通識、健康與護理、實習科目、專業科目」。" ErrorType="Error" Validator="分項列舉" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="true" Name="校部訂" Description="校部訂">
+      <Validate AutoCorrect="True" Description="「校部訂」只允許「校訂、部訂」。" ErrorType="Error" Validator="校部訂列舉" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="true" Name="必選修" Description="必選修">
+      <Validate AutoCorrect="True" Description="「必選修」只允許「必修、選修」。" ErrorType="Error" Validator="必選修列舉" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="true" Name="學分設定" Description="學分是否列入統計">
+      <Validate AutoCorrect="True" Description="「學分設定」只允許「計入、不計入」。" ErrorType="Error" Validator="學分是否計入列舉" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="true" Name="評分設定" Description="課程是否要評分的設定">
+      <Validate AutoCorrect="True" Description="「評分設定」只允許「評分、不評分」。" ErrorType="Error" Validator="評分成績列舉" When="" />
+    </Field>
+
+    <Field Required="False" EmptyAlsoValidate="true" Name="學期成績" Description="學期成績是否列入計算">
+      <Validate AutoCorrect="True" Description="「學期成績」只允許「列入、不列入」。" ErrorType="Error" Validator="學期成績列舉" When="" />
+    </Field>
+
+  </FieldList>
+  <ValidatorList>
+
+    <FieldValidator Name="是否開放查詢列舉" Type="Enumeration">
+      <Item Value="開放">
+        <Variation>是</Variation>
+      </Item>
+      <Item Value="不開放">
+        <Variation>否</Variation>
+      </Item >
+    </FieldValidator>
+
+    <FieldValidator Name="學分是否計入列舉" Type="Enumeration">
+      <Item Value="計入">
+        <Variation>是</Variation>
+      </Item>
+      <Item Value="不計入">
+        <Variation>否</Variation>
+      </Item >
+    </FieldValidator>
+
+    <FieldValidator Name="評分成績列舉" Type="Enumeration">
+      <Item Value="評分">
+        <Variation>是</Variation>
+      </Item>
+      <Item Value="不評分">
+        <Variation>否</Variation>
+      </Item >
+    </FieldValidator>
+
+    <!-- 是否存在排課班級-->
+    <FieldValidator Name="班級名稱是否存在排課班級" Type="ClassInCheck"/>
+    <!-- 是否存在ischool班級-->
+    <FieldValidator Name="班級名稱是否存在ischool" Type="ClassInischoolCheck"/>
+
+    <!-- 是否存在排課教師-->
+    <FieldValidator Name="教師名稱是否存在排課教師" Type="TeacherInCheck"/>
+    <!-- 是否存在ischool教師-->
+    <FieldValidator Name="教師名稱是否存在ischool" Type="TeacherInischoolCheck"/>
+
+
+    <FieldValidator Name="時間表名稱是否存在" Type="TimeTableNameCheck"/>
+    <FieldValidator Name="場地名稱是否存在" Type="ClassroomNameCheck"/>
+    <RowValidator Name="課程鍵值是否存在" Type="SchedulerCourseNameCheck"/>
+
+    <FieldValidator Name="不可空白" Type="STRINGLENGTH">
+      <MinLength>1</MinLength>
+    </FieldValidator>
+
+    <FieldValidator Name="Integer極限" Type="Integer">
+      <MinValue>0</MinValue>
+      <MaxValue>2000000000</MaxValue>
+    </FieldValidator>
+
+    <FieldValidator Name="學期列舉" Type="Enumeration">
+      <Item Value="1" />
+      <Item Value="2" />
+      <Item Value="3" />
+      <Item Value="4" />
+    </FieldValidator>
+
+    <FieldValidator Name="分項列舉" Type="Enumeration">
+      <Item Value="學業" />
+      <Item Value="體育" />
+      <Item Value="國防通識" />
+      <Item Value="健康與護理" />
+      <Item Value="實習科目" />
+      <Item Value="專業科目" />
+    </FieldValidator>
+
+    <FieldValidator Name="必選修列舉" Type="Enumeration">
+      <Item Value="必修">
+        <Variation>必</Variation>
+      </Item>
+      <Item Value="選修">
+        <Variation>選</Variation>
+      </Item >
+    </FieldValidator>
+
+    <FieldValidator Name="學期成績列舉" Type="Enumeration">
+      <Item Value="列入">
+        <Variation>是</Variation>
+      </Item>
+      <Item Value="不列入">
+        <Variation>否</Variation>
+      </Item >
+    </FieldValidator>
+
+    <FieldValidator Name="校部訂列舉" Type="Enumeration">
+      <Item Value="校訂">
+        <Variation>校</Variation>
+        <Variation>校定</Variation>
+      </Item>
+      <Item Value="部訂">
+        <Variation>部</Variation>
+        <Variation>部定</Variation>
+      </Item >
+    </FieldValidator>
+
+    <FieldValidator Name="只能為是列舉" Type="Enumeration">
+      <Item Value="是">
+        <Variation>TRUE</Variation>
+        <Variation>True</Variation>
+        <Variation>true</Variation>
+        <Variation>YES</Variation>
+        <Variation>Yes</Variation>
+        <Variation>yes</Variation>
+        <Variation>Y</Variation>
+        <Variation>y</Variation>
+      </Item>
+      <Item Value="">
+        <Variation>否</Variation>
+        <Variation>FALSE</Variation>
+        <Variation>False</Variation>
+        <Variation>false</Variation>
+        <Variation>NO</Variation>
+        <Variation>No</Variation>
+        <Variation>no</Variation>
+        <Variation>N</Variation>
+        <Variation>n</Variation>
+      </Item>
+    </FieldValidator>
+
+    <FieldValidator Name="單雙週列舉" Type="Enumeration">
+      <Item Value="單" >
+        <Variation>單週</Variation>
+        <Variation>1</Variation>
+      </Item>
+      <Item Value="雙">
+        <Variation>雙週</Variation>
+        <Variation>2</Variation>
+      </Item>
+      <Item Value="單雙">
+        <Variation>單雙週</Variation>
+        <Variation>3</Variation>
+      </Item>
+    </FieldValidator>
+  </ValidatorList>
+  <RowValidate>
+    <Validate AutoCorrect="False" Description="「課程名稱」、「學年度」加「學期」組合不存在於系統中，此筆資料將新增。" ErrorType="Warning" Validator="課程鍵值是否存在" When=""/>
+  </RowValidate>
+  <ConditionList />
+</ValidateRule>

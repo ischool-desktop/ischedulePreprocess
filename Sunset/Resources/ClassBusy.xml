@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="format.xsl" ?>
+<ValidateRule Name="班級不排課時段">
+    <DuplicateDetection>
+        <Detector Name="班級名稱,星期,開始時間">
+            <Field Name="班級名稱" />
+			<Field Name="星期" />
+			<Field Name="開始時間" />
+        </Detector>
+    </DuplicateDetection>
+    <FieldList>	
+	<Field Required="True" Name="班級名稱" Description="班級名稱">
+            <Validate AutoCorrect="False" Description="「班級名稱」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+        </Field>
+
+        <Field Required="True" Name="星期" Description="星期(1-7)">
+			<Validate AutoCorrect="True" Description="「星期」只允許「1」到「7」。 " ErrorType="Error" Validator="星期列舉" When="" />
+        </Field>
+
+        <Field Required="True" Name="開始時間" Description="開始時間">
+            <Validate AutoCorrect="False" Description="「開始時間」格式範例「08:10」。" ErrorType="Error" Validator="時間格式" When="" />
+        </Field>
+		
+        <Field Required="True" Name="結束時間" Description="結束時間">
+            <Validate AutoCorrect="False" Description="「結束時間」格式範例「09:00」。" ErrorType="Error" Validator="時間格式" When="" />
+        </Field>
+
+
+	<Field Required="False" Name="不排課描述" Description="不排課描述">
+        </Field>
+
+	<!--<Field Required="False" Name="所在地點" EmptyAlsoValidate="False" Description="所在地點">
+            <Validate AutoCorrect="False" Description="「所在地點」不存在系統中，在匯入時將自動新增。 " ErrorType="Warning" Validator="地點名稱是否存在" When="" />
+        </Field>-->
+        
+    </FieldList>
+    <ValidatorList>
+        <FieldValidator Name="時間格式" Type="TIMEFORMATCHECK"/>
+        <FieldValidator Name="班級名稱是否存在" Type="ClassNameCheck"/>
+	
+        <FieldValidator Name="不可空白" Type="STRINGLENGTH">
+            <MinLength>1</MinLength>
+        </FieldValidator>
+		
+		<FieldValidator Name="星期列舉" Type="Enumeration">
+			<Item Value="1">
+				<Variation>一</Variation>
+				<Variation>Ⅰ</Variation>
+			</Item>
+			<Item Value="2">
+				<Variation>二</Variation>
+				<Variation>Ⅱ</Variation>
+			</Item>
+			<Item Value="3">
+				<Variation>三</Variation>
+				<Variation>Ⅲ</Variation>
+			</Item>
+			<Item Value="4">
+				<Variation>四</Variation>
+				<Variation>Ⅳ</Variation>
+			</Item>
+			<Item Value="5">
+				<Variation>五</Variation>
+				<Variation>Ⅴ</Variation>
+			</Item>
+			<Item Value="6">
+				<Variation>六</Variation>
+				<Variation>Ⅵ</Variation>
+			</Item>
+			<Item Value="7">
+				<Variation>七</Variation>
+				<Variation>Ⅶ</Variation>
+			</Item>
+		</FieldValidator>
+				
+		<FieldValidator Name="Integer1-1140" Type="Integer">
+			<MinValue>1</MinValue>
+			<MaxValue>1140</MaxValue>
+		</FieldValidator>
+		
+		<FieldValidator Name="Integer0-23" Type="Integer">
+			<MinValue>0</MinValue>
+			<MaxValue>23</MaxValue>
+		</FieldValidator>
+		
+		<FieldValidator Name="Integer0-59" Type="Integer">
+			<MinValue>0</MinValue>
+			<MaxValue>59</MaxValue>
+		</FieldValidator>
+
+	<RowValidator Name="檢查日期範圍" Type="TIMERANGECHECK" />
+				
+	</ValidatorList>
+    <RowValidate>
+    	  <Validate AutoCorrect="False" Description="「結束時間要大於開始時間」。" ErrorType="Error" Validator="檢查日期範圍" When=""/>
+    </RowValidate>
+    <ConditionList/>
+</ValidateRule>
