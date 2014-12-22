@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="format.xsl" ?>
+<ValidateRule Name="班級清單">
+    <DuplicateDetection>
+        <Detector Name="班級名稱">
+            <Field Name="班級名稱" />
+        </Detector>
+    </DuplicateDetection>
+    <FieldList>	
+	<Field Required="True" Name="班級名稱" Description="班級的名稱">
+            <Validate AutoCorrect="False" Description="「班級名稱」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+            <Validate AutoCorrect="False" Description="「班級名稱」已存在系統內。" ErrorType="Error" Validator="班級名稱是否存在" When="" />
+        </Field>
+        <Field Required="True" Name="班級年級" Description="班級的年級資訊">
+            <Validate AutoCorrect="False" Description="「班級年級」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+			      <Validate AutoCorrect="False" Description="「班級年級」只允許數字。 " ErrorType="Error" Validator="Integer極限" When="" />
+        </Field>
+      <Field Required="False" Name="班級代碼" Description="班級的代碼"  EmptyAlsoValidate="False">
+      </Field>
+      <Field Required="False" Name="註記" Description="班級的註記,可填備註內容或當時班導師姓名"  EmptyAlsoValidate="False">
+      </Field>
+    </FieldList>
+    <ValidatorList>
+    
+        <FieldValidator Name="班級名稱是否存在" Type="CLASSINCHECK"/>
+	
+        <FieldValidator Name="不可空白" Type="STRINGLENGTH">
+            <MinLength>1</MinLength>
+        </FieldValidator>
+        
+        <FieldValidator Name="Integer極限" Type="Integer">
+            <MinValue>0</MinValue>
+            <MaxValue>2000000000</MaxValue>
+        </FieldValidator>
+        
+	</ValidatorList>
+    <RowValidate/>
+    <ConditionList/>
+</ValidateRule>
