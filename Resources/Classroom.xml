@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="format.xsl" ?>
+<ValidateRule Name="場地">
+    <DuplicateDetection>
+        <Detector Name="PrimaryKey1">
+            <Field Name="場地名稱" />
+        </Detector>
+    </DuplicateDetection>
+    <FieldList>
+
+	<Field Required="True" Name="場地名稱" Description="場地名稱">
+            <Validate AutoCorrect="False" Description="「場地名稱」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+        </Field>
+		
+        <Field Required="True" Name="場地班級容納數" Description="場地班級容納數">
+            <Validate AutoCorrect="False" Description="「場地班級容納數」必須是數字。" ErrorType="Error" Validator="容納數極限" When="" />
+        </Field>
+		
+        <Field Required="False" Name="場地描述" Description="場地描述">
+        </Field>
+		
+        <!--<Field Required="False" Name="地點名稱" Description="地點名稱" EmptyAlsoValidate="false" >
+            <Validate AutoCorrect="False" Description="「地點名稱」不存在系統中，在匯入時將自動新增。 " ErrorType="Warning" Validator="地點名稱是否存在" When="" />
+        </Field>-->
+		
+        <!--<Field Required="False" Name="無班級容納數限制" Description="無班級容納數限制(是,空白)">
+            <Validate AutoCorrect="True" Description="「無班級容納數限制」只允許「是」或填入空白。" ErrorType="Error" Validator="只能為是列舉" When="" />
+        </Field>-->
+        
+    </FieldList>
+    <ValidatorList>
+
+        <FieldValidator Name="地點名稱是否存在" Type="LOCATIONNAMECHECK"/>
+
+        <FieldValidator Name="容納數極限" Type="Integer">
+            <MinValue>1</MinValue>
+            <MaxValue>2000000000</MaxValue>
+        </FieldValidator>
+        <FieldValidator Name="不可空白" Type="STRINGLENGTH">
+            <MinLength>1</MinLength>
+        </FieldValidator>
+        <FieldValidator Name="只能為是列舉" Type="Enumeration">
+            <Item Value="是">
+				<Variation>TRUE</Variation>
+				<Variation>True</Variation>
+				<Variation>true</Variation>
+				<Variation>YES</Variation>
+				<Variation>Yes</Variation>
+				<Variation>yes</Variation>
+				<Variation>Y</Variation>
+				<Variation>y</Variation>
+				<Variation>1</Variation>
+			</Item>
+            <Item Value="">
+				<Variation>否</Variation>
+				<Variation>FALSE</Variation>
+				<Variation>False</Variation>
+				<Variation>false</Variation>
+				<Variation>NO</Variation>
+				<Variation>No</Variation>
+				<Variation>no</Variation>
+				<Variation>N</Variation>
+				<Variation>n</Variation>
+				<Variation>0</Variation>
+			</Item>
+        </FieldValidator>
+    </ValidatorList>
+    <RowValidate/>
+    <ConditionList/>
+</ValidateRule>

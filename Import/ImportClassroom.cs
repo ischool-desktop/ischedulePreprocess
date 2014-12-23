@@ -31,7 +31,8 @@ namespace Sunset
         /// <returns></returns>
         public override string GetValidateRule()
         {
-            return "http://sites.google.com/a/kunhsiang.com/sunset/home/yan-zheng-gui-ze/Classroom.xml";
+            //return "http://sites.google.com/a/kunhsiang.com/sunset/home/yan-zheng-gui-ze/Classroom.xml";
+            return Properties.Resources.Classroom;
         }
 
         /// <summary>

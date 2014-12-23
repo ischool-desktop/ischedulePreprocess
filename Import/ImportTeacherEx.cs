@@ -19,6 +19,7 @@ namespace Sunset
         public override string Import(List<Campus.DocumentValidator.IRowStream> Rows)
         {
             List<TeacherEx> InsertList = new List<TeacherEx>();
+            List<TeacherEx> UpdateList = new List<TeacherEx>();
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("匯入排課用教師資料：");
@@ -39,14 +40,28 @@ namespace Sunset
                 //暱稱
                 string Note = Row.GetValue(constNote);
 
-                //新增班級
-                TeacherEx ex = new TeacherEx();
-                ex.TeacherName = TeacherName;
-                ex.NickName = Nickname;
-                ex.TeacherCode = TeacherCode;
-                ex.TeachingExpertise = TeachingExpertise;
-                ex.Note = Note;
-                InsertList.Add(ex);
+                //教師全名
+                string FullTeacherName = string.IsNullOrEmpty(Nickname) ? TeacherName : TeacherName + "(" + Nickname + ")"; ;
+
+                if (!TeacherNameDic.ContainsKey(FullTeacherName))
+                {
+                    //新增班級
+                    TeacherEx ex = new TeacherEx();
+                    ex.TeacherName = TeacherName;
+                    ex.NickName = Nickname;
+                    ex.TeacherCode = TeacherCode;
+                    ex.TeachingExpertise = TeachingExpertise;
+                    ex.Note = Note;
+                    InsertList.Add(ex);
+                }
+                else
+                {
+                    TeacherEx ex = TeacherNameDic[FullTeacherName];
+                    ex.TeacherCode = TeacherCode;
+                    ex.TeachingExpertise = TeachingExpertise;
+                    ex.Note = Note;
+                    UpdateList.Add(ex);
+                }
 
             }
 
@@ -59,9 +74,20 @@ namespace Sunset
                 }
 
                 tool._A.InsertValues(InsertList);
-
-                FISCA.LogAgent.ApplicationLog.Log("排課", "匯入排課教師", sb.ToString());
             }
+
+            if (UpdateList.Count != 0)
+            {
+                sb.AppendLine("更新清單：");
+                foreach (TeacherEx each in UpdateList)
+                {
+                    sb.AppendLine(string.Format("教師姓名「{0}」教師暱稱「{1}」教師代碼「{2}」教師專長「{3}」註記「{4}」", each.TeacherName, each.NickName, each.TeacherCode, each.TeachingExpertise, each.Note));
+                }
+
+                tool._A.UpdateValues(UpdateList);
+            }
+
+            FISCA.LogAgent.ApplicationLog.Log("排課", "匯入排課教師", sb.ToString());
 
             return "";
         }

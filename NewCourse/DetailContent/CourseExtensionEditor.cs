@@ -554,8 +554,9 @@ namespace Sunset.NewCourse
                 DataListener.SuspendListen();         //終止變更判斷
                 mbkwCourseExtension.RunWorkerAsync(); //背景作業,取得並重新填入原資料
 
-                //CourseEvents.RaiseChanged();
-                //CourseSectionEvents.RaiseChanged();
+                //下面兩行不知為何會被註解，造成某些資料不同步(2014/12 解除註解)。
+                CourseEvents.RaiseChanged();
+                CourseSectionEvents.RaiseChanged();
 
                 FISCA.Presentation.MotherForm.SetStatusBarMessage("課程基本資料儲存成功!!");
             }

@@ -15,14 +15,14 @@ namespace Sunset
         {
             InitializeComponent();
 
-            this.TitleText = TitleText;
+            this.Text = TitleText;
         }
 
         public frmInputBox(string TitleText,string Message)
         {
             InitializeComponent();
 
-            this.TitleText = TitleText;
+            this.Text = TitleText;
             txtMessage.Text = Message;
         }
 

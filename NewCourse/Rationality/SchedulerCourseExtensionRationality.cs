@@ -94,8 +94,8 @@ namespace Sunset.NewCourse
 
                 if (strBuilder.Length > 0)
                 {
-                    Data.Add(new { 編號 = Course.CourseID, 課程名稱 = Course.CourseName, 學年度 = Course.SchoolYear, 學期 = Course.Semester, 上課時間表 = Course.TimeTableName, 節數 = Course.Period, 分割設定 = Course.SplitSpec, 訊息 = strBuilder.ToString() });
-                    CourseIDs.Add(Course.CourseID);
+                    Data.Add(new { 編號 = Course.UID, 課程名稱 = Course.CourseName, 學年度 = Course.SchoolYear, 學期 = Course.Semester, 上課時間表 = Course.TimeTableName, 節數 = Course.Period, 分割設定 = Course.SplitSpec, 訊息 = strBuilder.ToString() });
+                    CourseIDs.Add(Course.UID);
                 }
             }
             #endregion

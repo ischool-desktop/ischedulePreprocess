@@ -47,17 +47,17 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.panelEx1.Controls.Add(this.labelX2);
             this.panelEx1.Controls.Add(this.comboBoxEx1);
             this.panelEx1.Controls.Add(this.buttonX2);
             this.panelEx1.Controls.Add(this.buttonX1);
             this.panelEx1.Controls.Add(this.textBoxX1);
             this.panelEx1.Controls.Add(this.labelX1);
+            this.panelEx1.Controls.Add(this.labelX2);
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(298, 109);
+            this.panelEx1.Size = new System.Drawing.Size(313, 109);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -78,12 +78,13 @@
             this.labelX2.Enabled = false;
             this.labelX2.Location = new System.Drawing.Point(12, 46);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(127, 21);
+            this.labelX2.Size = new System.Drawing.Size(141, 21);
             this.labelX2.TabIndex = 0;
-            this.labelX2.Text = "複製現有程規劃表：";
+            this.labelX2.Text = "複製現有課程規劃表：";
             // 
             // comboBoxEx1
             // 
+            this.comboBoxEx1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxEx1.DisplayMember = "Text";
             this.comboBoxEx1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEx1.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
@@ -91,7 +92,7 @@
             this.comboBoxEx1.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2});
-            this.comboBoxEx1.Location = new System.Drawing.Point(139, 43);
+            this.comboBoxEx1.Location = new System.Drawing.Point(154, 43);
             this.comboBoxEx1.Name = "comboBoxEx1";
             this.comboBoxEx1.Size = new System.Drawing.Size(147, 25);
             this.comboBoxEx1.TabIndex = 1;
@@ -110,7 +111,7 @@
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Location = new System.Drawing.Point(226, 78);
+            this.buttonX2.Location = new System.Drawing.Point(241, 78);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(59, 23);
             this.buttonX2.TabIndex = 2;
@@ -123,7 +124,7 @@
             this.buttonX1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX1.Enabled = false;
-            this.buttonX1.Location = new System.Drawing.Point(161, 78);
+            this.buttonX1.Location = new System.Drawing.Point(176, 78);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(59, 23);
             this.buttonX1.TabIndex = 0;
@@ -132,15 +133,14 @@
             // 
             // textBoxX1
             // 
-            this.textBoxX1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxX1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
             this.textBoxX1.Border.Class = "TextBoxBorder";
             this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.errorProvider1.SetIconPadding(this.textBoxX1, -18);
-            this.textBoxX1.Location = new System.Drawing.Point(139, 9);
+            this.textBoxX1.Location = new System.Drawing.Point(154, 9);
             this.textBoxX1.Name = "textBoxX1";
             this.textBoxX1.Size = new System.Drawing.Size(147, 25);
             this.textBoxX1.TabIndex = 1;
@@ -166,13 +166,14 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
-            // GraduationPlanCreator
+            // SHGraduationPlanCreator
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(298, 109);
+            this.ClientSize = new System.Drawing.Size(313, 109);
             this.Controls.Add(this.panelEx1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "GraduationPlanCreator";
+            this.Name = "SHGraduationPlanCreator";
             this.Text = "新增課程規劃表";
             this.panelEx1.ResumeLayout(false);
             this.panelEx1.PerformLayout();

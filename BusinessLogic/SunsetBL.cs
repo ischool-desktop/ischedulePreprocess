@@ -359,9 +359,9 @@ namespace Sunset
             for (int i = 1; i < CourseSectionsList.Count; i++)
                 if (!CourseSectionsList[i].Equals(CourseSectionsList[0]))
                 {
-                    CourseAdmin.Instance.AddToTemp(CourseIDs);
+                    //CourseAdmin.Instance.AddToTemp(CourseIDs);
 
-                    return new Tuple<bool, string>(false, "課程" + Utility.GetCourseNames(CourseIDs) + "分段細節不相同！已加入至待處理！");
+                    return new Tuple<bool, string>(false, "課程" + Utility.GetCourseNames(CourseIDs) + "分段細節不相同！");
                 }
 
             return new Tuple<bool, string>(true, string.Empty);

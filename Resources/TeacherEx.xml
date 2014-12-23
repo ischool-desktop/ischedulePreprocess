@@ -33,7 +33,7 @@
     <RowValidator Name="檢查教師姓名加暱稱是否重覆" Type="TEACHERNAMECHECK_NEW" />
   </ValidatorList>
   <RowValidate>
-    <Validate AutoCorrect="False" Description="「教師姓名」加「教師暱稱」不可重覆。" ErrorType="Error" Validator="檢查教師姓名加暱稱是否重覆" When=""/>
+    <!--<Validate AutoCorrect="False" Description="「教師姓名」加「教師暱稱」不可重覆。" ErrorType="Error" Validator="檢查教師姓名加暱稱是否重覆" When=""/>-->
   </RowValidate>
 
   <ConditionList/>

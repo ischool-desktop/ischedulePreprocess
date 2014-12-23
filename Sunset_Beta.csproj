@@ -744,6 +744,7 @@
     <Content Include="Library\SmartSchool.ePaper.dll" />
     <Content Include="Library\SmartSchool.ePaper.xml" />
     <Content Include="Library\SmartSchool.ErrorReporting.dll" />
+    <None Include="Resources\Classroom.xml" />
     <None Include="Resources\Old_CourseExtension.xml" />
     <None Include="Resources\偷來改的齒輪.png" />
     <None Include="Resources\x_office_calendar.png" />

@@ -30,12 +30,12 @@ namespace Sunset.NewCourse
         /// <summary>
         /// 取得學年度
         /// </summary>
-        public int? SchoolYear { get { return K12.Data.Int.ParseAllowNull("" + cmbSchoolYear.SelectedItem); } }
+        public int? SchoolYear { get { return K12.Data.Int.ParseAllowNull("" + cmbSchoolYear.Text); } }
 
         /// <summary>
         /// 取得學期
         /// </summary>
-        public int? Semester { get { return K12.Data.Int.ParseAllowNull("" + cmbSemester.SelectedItem); } }
+        public int? Semester { get { return K12.Data.Int.ParseAllowNull("" + cmbSemester.Text); } }
 
         public List<SchedulerProgramPlanClassRecord> ProgramPlanClasses
         {
@@ -170,6 +170,15 @@ namespace Sunset.NewCourse
 
             SchedulerProgramPlanBL ProgramPlanBL = new SchedulerProgramPlanBL(vSchoolYear, vSemester);
 
+            List<SchedulerProgramPlanClassRecord> ppc = ProgramPlanClasses;
+
+            if (ppc.Count <= 0)
+            {
+                MessageBox.Show("部份班級無法取得課程規劃設定。");
+                DialogResult = System.Windows.Forms.DialogResult.None;
+                return;
+            }
+
             Tuple<bool, string> Result = ProgramPlanBL.OpenCourse(
                 ProgramPlanClasses
                 , chkCreateCourseSection.Checked);
@@ -185,7 +194,6 @@ namespace Sunset.NewCourse
             }
             else
                 MsgBox.Show(Result.Item2);
-
         }
     }
 }

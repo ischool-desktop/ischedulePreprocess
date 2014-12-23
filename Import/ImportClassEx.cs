@@ -60,11 +60,12 @@ namespace Sunset
                             if (ex.GradeYear.Value != GradeYear)
                             {
                                 ex.GradeYear = GradeYear; //更新年級
-                                UpdateList.Add(ex);
                             }
                         }
                         ex.ClassCode = ClassCode;
                         ex.Note = ClassNote;
+
+                        UpdateList.Add(ex);
                     }
                 }
                 if (InsertList.Count != 0)

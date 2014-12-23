@@ -162,7 +162,7 @@ namespace Sunset.NewCourse
 
                 string EducationLevel = config["EducationLevel"];
 
-                if (string.IsNullOrEmpty(EducationLevel))
+                if (string.IsNullOrEmpty(EducationLevel) || (Control.ModifierKeys & Keys.Shift) == Keys.Shift)
                 {
                     frmComboBox Combobox = new frmComboBox("請選擇國中或高中", new List<string>() { "國中", "高中" });
 
@@ -237,10 +237,10 @@ namespace Sunset.NewCourse
                 check.ShowDialog();
             };
 
-            MotherForm.RibbonBarItems["排課", "課程"]["更新授教師至ischool"].Enable = false;
-            MotherForm.RibbonBarItems["排課", "課程"]["更新授教師至ischool"].Size = RibbonBarButton.MenuButtonSize.Medium;
-            MotherForm.RibbonBarItems["排課", "課程"]["更新授教師至ischool"].Image = Properties.Resources.trainning_info_64;
-            MotherForm.RibbonBarItems["排課", "課程"]["更新授教師至ischool"].Click += delegate
+            MotherForm.RibbonBarItems["排課", "課程"]["更新授課教師至ischool"].Enable = false;
+            MotherForm.RibbonBarItems["排課", "課程"]["更新授課教師至ischool"].Size = RibbonBarButton.MenuButtonSize.Medium;
+            MotherForm.RibbonBarItems["排課", "課程"]["更新授課教師至ischool"].Image = Properties.Resources.trainning_info_64;
+            MotherForm.RibbonBarItems["排課", "課程"]["更新授課教師至ischool"].Click += delegate
             {
                 BackgroundWorker worker = new BackgroundWorker();
 

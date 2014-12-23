@@ -9,7 +9,7 @@
     <FieldList>	
 	<Field Required="True" Name="班級名稱" Description="班級的名稱">
             <Validate AutoCorrect="False" Description="「班級名稱」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
-            <Validate AutoCorrect="False" Description="「班級名稱」已存在系統內。" ErrorType="Error" Validator="班級名稱是否存在" When="" />
+            <!--<Validate AutoCorrect="False" Description="「班級名稱」已存在系統內。" ErrorType="Error" Validator="班級名稱是否存在" When="" />-->
         </Field>
         <Field Required="True" Name="班級年級" Description="班級的年級資訊">
             <Validate AutoCorrect="False" Description="「班級年級」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />

@@ -9,7 +9,7 @@ namespace Sunset
         {
             InitializeComponent();
 
-            this.TitleText = TitleText;
+            this.Text = TitleText;
 
             cmbSelector.Items.Clear();
             Items.ForEach(x => cmbSelector.Items.Add(x));

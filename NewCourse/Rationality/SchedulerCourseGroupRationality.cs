@@ -80,7 +80,7 @@ namespace Sunset.NewCourse
             List<SchedulerCourseSection> CourseSections = new List<SchedulerCourseSection>();
             
             if (QuerySections.Count>0)
-                udtHelper.Select<SchedulerCourseSection>("uid in (" + string.Join(",", QuerySections.Select(x=>x.UID).ToArray()) + ")");
+                CourseSections = udtHelper.Select<SchedulerCourseSection>("uid in (" + string.Join(",", QuerySections.Select(x => x.UID).ToArray()) + ")");
 
             QuerySections.ForEach(x => x.Source = CourseSections.Find(y => y.UID.Equals(x.UID)));
             #endregion
