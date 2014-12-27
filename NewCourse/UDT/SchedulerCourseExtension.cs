@@ -18,7 +18,6 @@ namespace Sunset.NewCourse
             NotIncludedInCredit = false;
             Required = string.Empty;
             RequiredBy = string.Empty;
-
             //不開放查詢 - 預設true不開放
             NoQuery = true;
 
@@ -29,53 +28,95 @@ namespace Sunset.NewCourse
             CalculationFlag = "是";
         }
 
+        /// <summary>
+        /// 複製。
+        /// </summary>
+        /// <returns></returns>
+        public SchedulerCourseExtension Clone()
+        {
+            SchedulerCourseExtension x = new SchedulerCourseExtension();
+            x.CourseName = CourseName;
+            x.SchoolYear = SchoolYear;
+            x.Semester = Semester;
+            x.Subject = Subject;
+            x.Level = Level;
+            x.Credit = Credit;
+            x.Period = Period;
+            x.TeacherName1 = TeacherName1;
+            x.TeacherName2 = TeacherName2;
+            x.TeacherName3 = TeacherName3;
+            x.ClassName = ClassName;
+            x.ClassID = ClassID;
+            x.CourseID = CourseID;
+            x.Domain = Domain;
+            x.Entry = Entry;
+            x.CalculationFlag = CalculationFlag;
+            x.NotIncludedInCalc = NotIncludedInCalc;
+            x.NotIncludedInCredit = NotIncludedInCredit;
+            x.Required = Required;
+            x.RequiredBy = RequiredBy;
+            x.SubjectAliasName = SubjectAliasName;
+            x.TimeTableID = TimeTableID;
+            x.SplitSpec = SplitSpec;
+            x.WeekFlag = WeekFlag;
+            x.AllowDup = AllowDup;
+            x.LimitNextDay = LimitNextDay;
+            x.ClassroomID = ClassroomID;
+            x.LongBreak = LongBreak;
+            x.WeekDayCond = WeekDayCond;
+            x.PeriodCond = PeriodCond;
+            x.CourseGroup = CourseGroup;
+            x.NoQuery = NoQuery;
+            return x;
+        }
+
         #region 課程基本資料
         /// <summary>
         /// 課程名稱
         /// </summary>
-        [FISCA.UDT.Field(Field="course_name")]
+        [FISCA.UDT.Field(Field = "course_name")]
         public string CourseName { get; set; }
 
         /// <summary>
         /// 學年度
         /// </summary>
-        [FISCA.UDT.Field(Field="school_year")]
+        [FISCA.UDT.Field(Field = "school_year")]
         public int SchoolYear { get; set; }
 
         /// <summary>
         /// 學期
         /// </summary>
-        [FISCA.UDT.Field(Field="semester")]
+        [FISCA.UDT.Field(Field = "semester")]
         public string Semester { get; set; }
 
         /// <summary>
         /// 科目名稱
         /// </summary>
-        [FISCA.UDT.Field(Field="subject")]
+        [FISCA.UDT.Field(Field = "subject")]
         public string Subject { get; set; }
 
         /// <summary>
         /// 級別
         /// </summary>
-        [FISCA.UDT.Field(Field="level")]
+        [FISCA.UDT.Field(Field = "level")]
         public int? Level { get; set; }
 
         /// <summary>
         /// 學分數
         /// </summary>
-        [FISCA.UDT.Field(Field="credit")]
+        [FISCA.UDT.Field(Field = "credit")]
         public int? Credit { get; set; }
 
         /// <summary>
         /// 節數
         /// </summary>
-        [FISCA.UDT.Field(Field="period")]
+        [FISCA.UDT.Field(Field = "period")]
         public int? Period { get; set; }
 
         /// <summary>
         /// 預設課程授課教師一
         /// </summary>
-        [FISCA.UDT.Field(Field="teacher_name_1")]
+        [FISCA.UDT.Field(Field = "teacher_name_1")]
         public string TeacherName1 { get; set; }
 
         /// <summary>
@@ -93,13 +134,13 @@ namespace Sunset.NewCourse
         /// <summary>
         /// 班級名稱
         /// </summary>
-        [FISCA.UDT.Field(Field="class_name")]
+        [FISCA.UDT.Field(Field = "class_name")]
         public string ClassName { get; set; }
 
         /// <summary>
         /// 班級系統編號
         /// </summary>
-        [FISCA.UDT.Field(Field="ref_class_id")]
+        [FISCA.UDT.Field(Field = "ref_class_id")]
         public int? ClassID { get; set; }
 
         /// <summary>
@@ -113,7 +154,7 @@ namespace Sunset.NewCourse
         /// <summary>
         /// 領域
         /// </summary>
-        [FISCA.UDT.Field(Field ="domain")]
+        [FISCA.UDT.Field(Field = "domain")]
         public string Domain { get; set; }
 
         /// <summary>
@@ -126,7 +167,7 @@ namespace Sunset.NewCourse
         /// 是否列入學期成績計算
         /// </summary>
         [FISCA.UDT.Field(Field = "calculation_flag")]
-        public string CalculationFlag { get; set;}
+        public string CalculationFlag { get; set; }
 
         /// <summary>
         /// 不計分(國中不使用)
@@ -138,7 +179,7 @@ namespace Sunset.NewCourse
         /// 不計入學分(國中不使用)
         /// </summary>
         [FISCA.UDT.Field(Field = "not_included_in_credit")]
-        public bool NotIncludedInCredit { get; set;}
+        public bool NotIncludedInCredit { get; set; }
 
         /// <summary>
         /// 必選修

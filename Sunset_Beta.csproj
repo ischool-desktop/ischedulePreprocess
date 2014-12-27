@@ -296,6 +296,12 @@
     <Compile Include="NewCourse\AddCourse.designer.cs">
       <DependentUpon>AddCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewCourse\CopyCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCourse\CopyCourseForm.Designer.cs">
+      <DependentUpon>CopyCourseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewCourse\CourseAdmin.cs" />
     <Compile Include="NewCourse\CourseEvent.cs" />
     <Compile Include="NewCourse\CourseSections.cs" />
@@ -832,6 +838,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewCourse\AddCourse.resx">
       <DependentUpon>AddCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCourse\CopyCourseForm.resx">
+      <DependentUpon>CopyCourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewCourse\CourseView.resx">
       <DependentUpon>CourseView.cs</DependentUpon>

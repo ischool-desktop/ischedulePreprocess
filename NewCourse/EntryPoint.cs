@@ -285,7 +285,7 @@ namespace Sunset.NewCourse
                             K12.Data.Int.GetString(x.SchoolYear).Equals(SchoolYear) &&
                             x.Semester.Equals(Semester));
 
-                        if ( Course!= null)
+                        if (Course != null)
                         {
                             SimpleCourse SimpleCourse = new SimpleCourse();
 
@@ -307,7 +307,7 @@ namespace Sunset.NewCourse
                                 {
                                     TCInstructRecord TCInstruct = new TCInstructRecord(vTeacher.ID, CourseID, 1);
                                     TCInstructs.Add(TCInstruct);
-                                } 
+                                }
                             }
 
                             if (!string.IsNullOrEmpty(Course.TeacherName2))
@@ -319,7 +319,7 @@ namespace Sunset.NewCourse
                                 {
                                     TCInstructRecord TCInstruct = new TCInstructRecord(vTeacher.ID, CourseID, 2);
                                     TCInstructs.Add(TCInstruct);
-                                } 
+                                }
                             }
 
                             if (!string.IsNullOrEmpty(Course.TeacherName3))
@@ -338,7 +338,7 @@ namespace Sunset.NewCourse
 
                     #region 取得現在有課程授課教師
                     FunctionSpliter<string, TCInstructRecord> TCSpliter = new FunctionSpliter<string, TCInstructRecord>(1000, 1);
-                    TCSpliter.Function = (x) => TCInstruct.SelectByTeacherIDAndCourseID(null,x);
+                    TCSpliter.Function = (x) => TCInstruct.SelectByTeacherIDAndCourseID(null, x);
                     TCSpliter.ProgressChange = x => worker.ReportProgress(x, "取得課程授課教師中...");
                     List<TCInstructRecord> DeleteTCInstructRecords = TCSpliter.Execute(DeleteCourseIDs);
                     #endregion
@@ -348,7 +348,7 @@ namespace Sunset.NewCourse
                     #region 新增授課教師
                     FunctionSpliter<TCInstructRecord, string> TCInsertSpliter = new FunctionSpliter<TCInstructRecord, string>(1000, 1);
                     TCInsertSpliter.Function = (x) => TCInstruct.Insert(x);
-                    TCInsertSpliter.ProgressChange = x => worker.ReportProgress(x,"新增課程授課教師中...");
+                    TCInsertSpliter.ProgressChange = x => worker.ReportProgress(x, "新增課程授課教師中...");
                     List<string> NewIDs = TCInsertSpliter.Execute(TCInstructs);
                     #endregion
                 };
@@ -490,6 +490,14 @@ namespace Sunset.NewCourse
             //指定課程群組
             CourseAdmin.Instance.AddAssignCourseGroupButtons();
             CourseAdmin.Instance.AddAssignTimeTableButtons();
+
+            #region 複製課程到新學期
+            CourseAdmin.Instance.ListPaneContexMenu["複製到其他學期"].Click += (sender, e) =>
+            {
+                new CopyCourseForm().ShowDialog();
+                CourseEvents.RaiseChanged();
+            };
+            #endregion
 
             #region 刪除 ListPaneContexMenu
 
@@ -643,7 +651,7 @@ namespace Sunset.NewCourse
                             if (UpdateCourses.Count > 0)
                                 UpdateCourses.SaveAll();
 
-                           MessageBox.Show("已重設"+ UpdateCourses.Count + "筆資料！");
+                            MessageBox.Show("已重設" + UpdateCourses.Count + "筆資料！");
                         }
                     });
                 };

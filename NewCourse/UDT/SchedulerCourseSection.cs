@@ -15,6 +15,31 @@ namespace Sunset.NewCourse
             return (SchedulerCourseSection)this.MemberwiseClone();
         }
 
+        public SchedulerCourseSection Clone()
+        {
+            SchedulerCourseSection newsection = new SchedulerCourseSection();
+
+            newsection.CourseID = CourseID;
+            newsection.WeekDay = WeekDay;
+            newsection.Period = Period;
+            newsection.Length = Length;
+            newsection.WeekDayCond = WeekDayCond;
+            newsection.PeriodCond = PeriodCond;
+            newsection.WeekFlag = WeekFlag;
+            newsection.LongBreak = LongBreak;
+            newsection.Lock = Lock;
+            newsection.ClassroomID = ClassroomID;
+            newsection.TeacherName1 = TeacherName1;
+            newsection.TeacherName2 = TeacherName2;
+            newsection.TeacherName3 = TeacherName3;
+            newsection.TeacherID1 = TeacherID1;
+            newsection.TeacherID2 = TeacherID2;
+            newsection.TeacherID3 = TeacherID3;
+            newsection.Comment = Comment;
+
+            return newsection;
+        }
+
         /// <summary>
         /// 課程編號
         /// </summary>
@@ -124,7 +149,7 @@ namespace Sunset.NewCourse
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            SchedulerCourseSection Target = obj as  SchedulerCourseSection;
+            SchedulerCourseSection Target = obj as SchedulerCourseSection;
 
             if (Target == null) return false;
 

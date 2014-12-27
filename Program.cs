@@ -103,52 +103,51 @@ namespace Sunset
             #endregion
 
             #region 預開課程
-            MotherForm.RibbonBarItems["班級", "排課"]["預開課程"].Image = Resources.CourseIcon;
-            MotherForm.RibbonBarItems["班級", "排課"]["預開課程"].Enable = false;
-            MotherForm.RibbonBarItems["班級", "排課"]["預開課程"].Click += (sender, e) => new frmPreOpenCourse().ShowDialog();
-            K12.Presentation.NLDPanels.Class.SelectedSourceChanged += (sender, e) => MotherForm.RibbonBarItems["班級", "排課"]["預開課程"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0150"].Executable && (K12.Presentation.NLDPanels.Class.SelectedSource.Count > 0);
+            //MotherForm.RibbonBarItems["班級", "排課"]["預開課程"].Image = Resources.CourseIcon;
+            //MotherForm.RibbonBarItems["班級", "排課"]["預開課程"].Enable = false;
+            //MotherForm.RibbonBarItems["班級", "排課"]["預開課程"].Click += (sender, e) => new frmPreOpenCourse().ShowDialog();
+            //K12.Presentation.NLDPanels.Class.SelectedSourceChanged += (sender, e) => MotherForm.RibbonBarItems["班級", "排課"]["預開課程"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0150"].Executable && (K12.Presentation.NLDPanels.Class.SelectedSource.Count > 0);
             #endregion
-
 
             #region 課程排課資料
             //IDetailBulider CourseExtensionDetailBuilder = new FISCA.Presentation.DetailBulider<CourseExtensionEditor>();
             //K12.Presentation.NLDPanels.Course.AddDetailBulider(CourseExtensionDetailBuilder);
-            MotherForm.RibbonBarItems["課程", "排課"]["匯入"].Image = Resources.Import_Image;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯入"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程排課資料"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0060"].Executable;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程排課資料"].Click += (sender, e) => (new ImportCourseExtension()).Execute();
-            MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程排課資料"].Image = Resources.sunrise;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯出"].Image = Resources.Export_Image;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯出"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯出"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0070"].Executable;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程排課資料"].Click += (sender, e) => ExportSunset.ExportCourseExtension(K12.Presentation.NLDPanels.Course.SelectedSource);
-            MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程排課資料(含課程)"].Click += (sender, e) => ExportSunset.ExportCourseExtensionAndCourse(K12.Presentation.NLDPanels.Course.SelectedSource);
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯入"].Image = Resources.Import_Image;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯入"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程排課資料"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0060"].Executable;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程排課資料"].Click += (sender, e) => (new ImportCourseExtension()).Execute();
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程排課資料"].Image = Resources.sunrise;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯出"].Image = Resources.Export_Image;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯出"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯出"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0070"].Executable;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程排課資料"].Click += (sender, e) => ExportSunset.ExportCourseExtension(K12.Presentation.NLDPanels.Course.SelectedSource);
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程排課資料(含課程)"].Click += (sender, e) => ExportSunset.ExportCourseExtensionAndCourse(K12.Presentation.NLDPanels.Course.SelectedSource);
             //MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程排課資料(含課程分領域)"].Click += (sender, e) => ExportSunset.ExportCourseExtensionAndCourseByDomain(K12.Presentation.NLDPanels.Course.SelectedSource);
 
-            MotherForm.RibbonBarItems["課程", "排課"]["批次產生課程分段"].Enable = false;
-            MotherForm.RibbonBarItems["課程", "排課"]["批次產生課程分段"].Image = Resources.schedule_add_128;
-            MotherForm.RibbonBarItems["課程", "排課"]["批次產生課程分段"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["課程", "排課"]["批次產生課程分段"].Click += (sender, e) =>
-            {
-                List<string> CourseIDs = K12.Presentation.NLDPanels.Course.SelectedSource;
+            //MotherForm.RibbonBarItems["課程", "排課"]["批次產生課程分段"].Enable = false;
+            //MotherForm.RibbonBarItems["課程", "排課"]["批次產生課程分段"].Image = Resources.schedule_add_128;
+            //MotherForm.RibbonBarItems["課程", "排課"]["批次產生課程分段"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["課程", "排課"]["批次產生課程分段"].Click += (sender, e) =>
+            //{
+            //    List<string> CourseIDs = K12.Presentation.NLDPanels.Course.SelectedSource;
 
-                //建立Spliter
-                FunctionSpliter<string, string> Spliter = new FunctionSpliter<string, string>(1000, 3);
+            //    //建立Spliter
+            //    FunctionSpliter<string, string> Spliter = new FunctionSpliter<string, string>(1000, 3);
 
-                Spliter.Function = (x) => SunsetBL.CreateCourseSectionByCourseIDs(x);
-                //Spliter.ProgressChange = x => MotherForm.SetStatusBarMessage(string.Empty, x);
-                List<string> NewCourseSectionIDs = Spliter.Execute(CourseIDs);
+            //    Spliter.Function = (x) => SunsetBL.CreateCourseSectionByCourseIDs(x);
+            //    //Spliter.ProgressChange = x => MotherForm.SetStatusBarMessage(string.Empty, x);
+            //    List<string> NewCourseSectionIDs = Spliter.Execute(CourseIDs);
 
-                MsgBox.Show("已成功新增" + NewCourseSectionIDs.Count + "筆課程分段!");
-            };
+            //    MsgBox.Show("已成功新增" + NewCourseSectionIDs.Count + "筆課程分段!");
+            //};
 
             //若有選取課程，以及有權限才將指定按鈕啟用
-            K12.Presentation.NLDPanels.Course.SelectedSourceChanged += (sender, e) =>
-            {
-                int SelectedCount = K12.Presentation.NLDPanels.Course.SelectedSource.Count;
-                bool IsCreateCourseSectionExecutable = UserAcl.Current["Sunset.Ribbon0120"].Executable;
-                MotherForm.RibbonBarItems["課程", "排課"]["批次產生課程分段"].Enable = (SelectedCount > 0 && IsCreateCourseSectionExecutable);
-            };
+            //K12.Presentation.NLDPanels.Course.SelectedSourceChanged += (sender, e) =>
+            //{
+            //    int SelectedCount = K12.Presentation.NLDPanels.Course.SelectedSource.Count;
+            //    bool IsCreateCourseSectionExecutable = UserAcl.Current["Sunset.Ribbon0120"].Executable;
+            //    MotherForm.RibbonBarItems["課程", "排課"]["批次產生課程分段"].Enable = (SelectedCount > 0 && IsCreateCourseSectionExecutable);
+            //};
 
             Features.Register("Sunset/ImportCourseExtension", arg =>
             {
@@ -172,27 +171,28 @@ namespace Sunset
             CourseClassroom CourseClassroom = new CourseClassroom();
             CourseClassroom.SetupClassroomNameField();
 
-            CourseExtensionField CourseExtensionField = new CourseExtensionField();
-            CourseExtensionField.SetupTimeTableNameField();
-            CourseExtensionField.SetupGroupNameField();
-            CourseExtensionField.AddAssignTimeTableButtons();
-            CourseClassroom.AddAssignClassroomButtons();
-            CourseExtensionField.AddAssignCourseGroupButtons();
+            //原課程上的功能。
+            //CourseExtensionField CourseExtensionField = new CourseExtensionField();
+            //CourseExtensionField.SetupTimeTableNameField();
+            //CourseExtensionField.SetupGroupNameField();
+            //CourseExtensionField.AddAssignTimeTableButtons();
+            //CourseClassroom.AddAssignClassroomButtons();
+            //CourseExtensionField.AddAssignCourseGroupButtons();
             #endregion
 
             #region 課程分段資料
             //IDetailBulider CourseSectionDetailBuilder = new FISCA.Presentation.DetailBulider<CourseSectionEditor>();
             //K12.Presentation.NLDPanels.Course.AddDetailBulider(CourseSectionDetailBuilder);
-            MotherForm.RibbonBarItems["課程", "排課"]["匯入"].Image = Resources.Import_Image;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯入"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程分段資料"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0080"].Executable;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程分段資料"].Click += (sender, e) => (new ImportCourseSection()).Execute();
-            MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程分段資料"].Image = Resources.sunrise;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯出"].Image = Resources.Export_Image;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯出"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程分段資料"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0090"].Executable;
-            MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程分段資料"].Click += (sender, e) => ExportSunset.ExportCourseSection(K12.Presentation.NLDPanels.Course.SelectedSource);
-            MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程分段資料"].Image = Resources.sunrise;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯入"].Image = Resources.Import_Image;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯入"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程分段資料"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0080"].Executable;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程分段資料"].Click += (sender, e) => (new ImportCourseSection()).Execute();
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯入"]["匯入課程分段資料"].Image = Resources.sunrise;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯出"].Image = Resources.Export_Image;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯出"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程分段資料"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0090"].Executable;
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程分段資料"].Click += (sender, e) => ExportSunset.ExportCourseSection(K12.Presentation.NLDPanels.Course.SelectedSource);
+            //MotherForm.RibbonBarItems["課程", "排課"]["匯出"]["匯出課程分段資料"].Image = Resources.sunrise;
 
             Features.Register("Sunset/ImportCourseSection", arg =>
             {
@@ -212,38 +212,38 @@ namespace Sunset
             #endregion
 
             #region 教師不排課時段
-            IDetailBulider TeacherBusyDetailBuilder = new FISCA.Presentation.DetailBulider<TeacherBusyEditor>();
-            IDetailBulider TeacherExtensionDetailBuilder = new FISCA.Presentation.DetailBulider<TeacherExtensionEditor>();
+            //IDetailBulider TeacherBusyDetailBuilder = new FISCA.Presentation.DetailBulider<TeacherBusyEditor>();
+            //IDetailBulider TeacherExtensionDetailBuilder = new FISCA.Presentation.DetailBulider<TeacherExtensionEditor>();
             //IDetailBulider CourseExtensionDetailBuilder = new FISCA.Presentation.DetailBulider<CourseExtensionEditor>();
             //IDetailBulider CourseSectionDetailBuilder = new FISCA.Presentation.DetailBulider<CourseSectionEditor>();
 
-            K12.Presentation.NLDPanels.Teacher.AddDetailBulider(TeacherBusyDetailBuilder);
-            K12.Presentation.NLDPanels.Teacher.AddDetailBulider(TeacherExtensionDetailBuilder);
+            //K12.Presentation.NLDPanels.Teacher.AddDetailBulider(TeacherBusyDetailBuilder);
+            //K12.Presentation.NLDPanels.Teacher.AddDetailBulider(TeacherExtensionDetailBuilder);
 
             //K12.Presentation.NLDPanels.Course.AddDetailBulider(CourseExtensionDetailBuilder);
             //K12.Presentation.NLDPanels.Course.AddDetailBulider(CourseSectionDetailBuilder);
 
-            MotherForm.RibbonBarItems["教師", "排課"]["匯入"].Image = Resources.Import_Image;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯入"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師不排課時段"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0030"].Executable;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師不排課時段"].Click += (sender, e) => (new ImportTeacherBusy()).Execute();
-            MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師不排課時段"].Image = Resources.sunrise;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯出"].Image = Resources.Export_Image;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯出"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師不排課時段"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0040"].Executable;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師不排課時段"].Click += (sender, e) => ExportSunset.ExportTeacherBusy(K12.Presentation.NLDPanels.Teacher.SelectedSource);
-            MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師不排課時段"].Image = Resources.sunrise;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯入"].Image = Resources.Import_Image;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯入"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師不排課時段"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0030"].Executable;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師不排課時段"].Click += (sender, e) => (new ImportTeacherBusy()).Execute();
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師不排課時段"].Image = Resources.sunrise;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯出"].Image = Resources.Export_Image;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯出"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師不排課時段"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0040"].Executable;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師不排課時段"].Click += (sender, e) => ExportSunset.ExportTeacherBusy(K12.Presentation.NLDPanels.Teacher.SelectedSource);
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師不排課時段"].Image = Resources.sunrise;
 
-            MotherForm.RibbonBarItems["教師", "排課"]["匯入"].Image = Resources.Import_Image;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯入"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師排課資料"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0035"].Executable;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師排課資料"].Click += (sender, e) => (new ImportTeacherExtension()).Execute();
-            MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師排課資料"].Image = Resources.sunrise;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯出"].Image = Resources.Export_Image;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯出"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師排課資料"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0045"].Executable;
-            MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師排課資料"].Click += (sender, e) => ExportSunset.ExportTeacherExtension(K12.Presentation.NLDPanels.Teacher.SelectedSource);
-            MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師排課資料"].Image = Resources.sunrise;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯入"].Image = Resources.Import_Image;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯入"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師排課資料"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0035"].Executable;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師排課資料"].Click += (sender, e) => (new ImportTeacherExtension()).Execute();
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯入"]["匯入教師排課資料"].Image = Resources.sunrise;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯出"].Image = Resources.Export_Image;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯出"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師排課資料"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0045"].Executable;
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師排課資料"].Click += (sender, e) => ExportSunset.ExportTeacherExtension(K12.Presentation.NLDPanels.Teacher.SelectedSource);
+            //MotherForm.RibbonBarItems["教師", "排課"]["匯出"]["匯出教師排課資料"].Image = Resources.sunrise;
 
 
             Features.Register("Sunset/ImportTeacherBusy", arg =>
@@ -264,20 +264,19 @@ namespace Sunset
             #endregion
 
             #region 班級不排課時段
-            IDetailBulider ClassBusyDetailBuilder = new FISCA.Presentation.DetailBulider<ClassBusyEditor>();
+            //IDetailBulider ClassBusyDetailBuilder = new FISCA.Presentation.DetailBulider<ClassBusyEditor>();
 
-            K12.Presentation.NLDPanels.Class.AddDetailBulider(ClassBusyDetailBuilder);
+            //K12.Presentation.NLDPanels.Class.AddDetailBulider(ClassBusyDetailBuilder);
 
-            MotherForm.RibbonBarItems["班級", "排課"]["匯入"].Image = Resources.Import_Image;
-            MotherForm.RibbonBarItems["班級", "排課"]["匯入"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["班級", "排課"]["匯入"]["匯入班級不排課時段"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0220"].Executable;
-            MotherForm.RibbonBarItems["班級", "排課"]["匯入"]["匯入班級不排課時段"].Click += (sender, e) => (new ImportClassBusy()).Execute();
-            MotherForm.RibbonBarItems["班級", "排課"]["匯出"].Image = Resources.Export_Image;
-            MotherForm.RibbonBarItems["班級", "排課"]["匯出"].Size = RibbonBarButton.MenuButtonSize.Large;
-            MotherForm.RibbonBarItems["班級", "排課"]["匯出"]["匯出班級不排課時段"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0140"].Executable;
-            MotherForm.RibbonBarItems["班級", "排課"]["匯出"]["匯出班級不排課時段"].Click += (sender, e) => ExportSunset.ExportClassBusy(K12.Presentation.NLDPanels.Class.SelectedSource);
+            //MotherForm.RibbonBarItems["班級", "排課"]["匯入"].Image = Resources.Import_Image;
+            //MotherForm.RibbonBarItems["班級", "排課"]["匯入"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["班級", "排課"]["匯入"]["匯入班級不排課時段"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0220"].Executable;
+            //MotherForm.RibbonBarItems["班級", "排課"]["匯入"]["匯入班級不排課時段"].Click += (sender, e) => (new ImportClassBusy()).Execute();
+            //MotherForm.RibbonBarItems["班級", "排課"]["匯出"].Image = Resources.Export_Image;
+            //MotherForm.RibbonBarItems["班級", "排課"]["匯出"].Size = RibbonBarButton.MenuButtonSize.Large;
+            //MotherForm.RibbonBarItems["班級", "排課"]["匯出"]["匯出班級不排課時段"].Enable = FISCA.Permission.UserAcl.Current["Sunset.Ribbon0140"].Executable;
+            //MotherForm.RibbonBarItems["班級", "排課"]["匯出"]["匯出班級不排課時段"].Click += (sender, e) => ExportSunset.ExportClassBusy(K12.Presentation.NLDPanels.Class.SelectedSource);
             #endregion
-
 
             #region 學年度學期日期對應
             //MotherForm.RibbonBarItems["教務作業", "調代課作業"]["學年度學期日期"].Image = Resources.x_office_calendar;
