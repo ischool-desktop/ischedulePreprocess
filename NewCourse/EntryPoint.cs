@@ -492,6 +492,7 @@ namespace Sunset.NewCourse
             CourseAdmin.Instance.AddAssignTimeTableButtons();
 
             #region 複製課程到新學期
+            CourseAdmin.Instance.ListPaneContexMenu["複製到其他學期"].Enable = Permissions.複製課程到其他學期權限;
             CourseAdmin.Instance.ListPaneContexMenu["複製到其他學期"].Click += (sender, e) =>
             {
                 new CopyCourseForm().ShowDialog();
@@ -557,6 +558,7 @@ namespace Sunset.NewCourse
             CourseButtonCatalog.Add(new RibbonFeature(Permissions.批次指定課程不開放查詢, "批次指定課程不開放查詢"));
             CourseButtonCatalog.Add(new RibbonFeature(Permissions.複製課程回ischool, "複製課程回ischool"));
             CourseButtonCatalog.Add(new RibbonFeature(Permissions.班級教師檢查, "班級教師檢查"));
+            CourseButtonCatalog.Add(new RibbonFeature(Permissions.複製課程到其他學期, "複製課程到其他學期"));
             //重覆建立了
             //CourseButtonCatalog.Add(new RibbonFeature(Permissions.重設國高中課規狀態, "重設課規樣式"));
             //目前沒有使用(4/12)

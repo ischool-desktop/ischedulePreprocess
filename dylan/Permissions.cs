@@ -167,6 +167,15 @@ namespace Sunset
             }
         }
 
+        public static string 複製課程到其他學期 { get { return "b360fe40-1af3-4a79-b745-1ea11e1dce10"; } }
+        public static bool 複製課程到其他學期權限
+        {
+            get
+            {
+                return FISCA.Permission.UserAcl.Current[複製課程到其他學期].Executable;
+            }
+        }
+
         public static string 課程規劃表 { get { return "d1d959a6-50e6-46f5-ac0f-7b2264ece9ee"; } }
         public static bool 課程規劃表權限
         {
