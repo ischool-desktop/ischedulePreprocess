@@ -2,7 +2,7 @@
 namespace Sunset
 {
     /// <summary>
-    /// 地點距離
+    /// 地點距離(沒用到)
     /// </summary>
     [FISCA.UDT.TableName("scheduler.ll_distance")]
     public class LLDistance : FISCA.UDT.ActiveRecord

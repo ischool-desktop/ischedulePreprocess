@@ -2,7 +2,7 @@
 namespace Sunset
 {
     /// <summary>
-    /// 場地不排課時段
+    /// 場地不排課時段(沒在用)
     /// </summary>
     [FISCA.UDT.TableName("scheduler.config")]
     public class Config : FISCA.UDT.ActiveRecord

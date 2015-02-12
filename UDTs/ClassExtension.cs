@@ -2,7 +2,7 @@
 namespace Sunset
 {
     /// <summary>
-    /// 班級延伸資訊
+    /// 班級延伸資訊(沒在用了)
     /// </summary>
     [FISCA.UDT.TableName("scheduler.class_extension")]
     public class ClassExtension : FISCA.UDT.ActiveRecord

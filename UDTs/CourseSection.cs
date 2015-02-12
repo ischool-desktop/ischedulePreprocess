@@ -2,7 +2,7 @@
 namespace Sunset
 {
     /// <summary>
-    /// 課程分段
+    /// 課程分段(沒用到)
     /// </summary>
     [FISCA.UDT.TableName("scheduler.course_section")]
     public class CourseSection : FISCA.UDT.ActiveRecord

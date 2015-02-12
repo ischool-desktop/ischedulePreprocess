@@ -6,7 +6,7 @@ using System.Text;
 namespace Sunset
 {
     /// <summary>
-    /// 班級不排課時段(舊TableName)
+    /// 班級不排課時段(舊TableName，沒在用了)
     /// </summary>
     [FISCA.UDT.TableName("scheduler.class_busy")]
     public class ClassBusy : FISCA.UDT.ActiveRecord
